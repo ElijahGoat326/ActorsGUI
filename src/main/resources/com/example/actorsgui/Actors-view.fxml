@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.actorsgui.ActorController">
+   <children>
+      <TableView id="actorTable" fx:id="actorTable" editable="true" layoutX="2.0" layoutY="-4.0" prefHeight="400.0" prefWidth="2000.0">
+        <columns>
+          <TableColumn fx:id="rank" prefWidth="200.0" text="rank" />
+          <TableColumn fx:id="name" prefWidth="200.0" text="name" />
+            <TableColumn fx:id="worldwidetotal" prefWidth="200.0" text="worldwidetotal" />
+            <TableColumn fx:id="average" prefWidth="200.0" text="average" />
+            <TableColumn fx:id="numberOffilms" prefWidth="200.0" text="numberOffilms" />
+            <TableColumn fx:id="amountOfMoneyMade" prefWidth="200.0" text="amountOfMoneyMade" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
