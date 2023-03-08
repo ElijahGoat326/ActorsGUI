@@ -16,7 +16,7 @@ import static com.example.actorsgui.Moviemaker.allmoviemakers;
 public class ActorController {
 
     public TableView actorTable;
-    public TableColumn rank;
+    public TableColumn<Actor, String> rank;
     public TableColumn name;
 
     public TableColumn worldwidetotal;
@@ -45,6 +45,21 @@ public class ActorController {
         average.setCellFactory(TextFieldTableCell.forTableColumn());
         numberOffilms.setCellFactory(TextFieldTableCell.forTableColumn());
         amountOfMoneyMade.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        rank.setOnEditCommit(
+                (TableColumn.CellEditEvent<Actor, String> t) -> {
+                    int tableRow = t.getTablePosition().getRow();
+                    Moviemaker actorFromTableRow = t.getTableView().getItems().get(tableRow);
+                    actorFromTableRow.setRank(t.getNewValue());
+                });
+
+
+
+
+
+
+
+
     }
 
 }
