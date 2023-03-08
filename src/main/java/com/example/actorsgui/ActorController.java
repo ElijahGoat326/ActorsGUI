@@ -17,12 +17,12 @@ public class ActorController {
 
     public TableView actorTable;
     public TableColumn<Actor, String> rank;
-    public TableColumn name;
+    public TableColumn<Actor, String> name;
 
-    public TableColumn worldwidetotal;
-    public TableColumn average;
-    public TableColumn numberOffilms;
-    public TableColumn amountOfMoneyMade;
+    public TableColumn<Actor, String> worldwidetotal;
+    public TableColumn<Actor, String> average;
+    public TableColumn<Actor, String> numberOffilms;
+    public TableColumn<Actor, String> amountOfMoneyMade;
 
     public void initialize() {
         //restoreOrReadData();
@@ -53,12 +53,40 @@ public class ActorController {
                     actorFromTableRow.setRank(t.getNewValue());
                 });
 
+        name.setOnEditCommit(
+                (TableColumn.CellEditEvent<Actor, String> t) -> {
+                    int tableRow = t.getTablePosition().getRow();
+                    Moviemaker actorFromTableRow = t.getTableView().getItems().get(tableRow);
+                    actorFromTableRow.setName(t.getNewValue());
+                });
 
+        worldwidetotal.setOnEditCommit(
+                (TableColumn.CellEditEvent<Actor, String> t) -> {
+                    int tableRow = t.getTablePosition().getRow();
+                    Moviemaker actorFromTableRow = t.getTableView().getItems().get(tableRow);
+                    actorFromTableRow.setWorldwideTotal(t.getNewValue());
+                });
 
+        average.setOnEditCommit(
+                (TableColumn.CellEditEvent<Actor, String> t) -> {
+                    int tableRow = t.getTablePosition().getRow();
+                    Moviemaker actorFromTableRow = t.getTableView().getItems().get(tableRow);
+                    actorFromTableRow.setAverage(t.getNewValue());
+                });
 
+        numberOffilms.setOnEditCommit(
+                (TableColumn.CellEditEvent<Actor, String> t) -> {
+                    int tableRow = t.getTablePosition().getRow();
+                    Moviemaker actorFromTableRow = t.getTableView().getItems().get(tableRow);
+                    actorFromTableRow.setNumberOfFilms(t.getNewValue());
+                });
 
-
-
+        amountOfMoneyMade.setOnEditCommit(
+                (TableColumn.CellEditEvent<Actor, String> t) -> {
+                    int tableRow = t.getTablePosition().getRow();
+                    Moviemaker actorFromTableRow = t.getTableView().getItems().get(tableRow);
+                    ((Actor) actorFromTableRow).setAmountOfMoneyMade(t.getNewValue());
+                });
 
     }
 
